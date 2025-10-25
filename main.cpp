@@ -76,11 +76,21 @@ int main() {
 
     int min = INT_MAX;
     int min_g;
-    for (int i = 0; i < 3; ++i) {
+
+    if (sum[0] <= min) {
+        min = sum[0];
+        min_g = 0;
+    }
+    for (int i = 1; i < 3; ++i) {
         if (sum[i] < min) {
             min = sum[i];
             min_g = i;
         }
+    }
+
+    if (min_g < 0 or min_g > 2) {
+        cout << "Строка определена неверно" << endl;
+        return 1;
     }
 
     for (int f = 0; f < 4; ++f) {
